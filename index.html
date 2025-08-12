@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="split">
+    <section class="intro">
+      <h1>Welcome</h1>
+    </section>
+    <section class="right">
+      <div class="card" aria-labelledby="title">
+        <h2 id="title">Say Hello</h2>
+        <form id="greet-form" novalidate>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required aria-required="true" />
+          <button type="submit">Greet Me</button>
+          <div id="error" class="error" role="alert" aria-live="assertive">
+            <span class="error-message"></span>
+            <button type="button" class="error-close" aria-label="Dismiss error">&times;</button>
+          </div>
+        </form>
+        <p id="greeting" class="greeting" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

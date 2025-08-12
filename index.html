@@ -8,15 +8,26 @@
 </head>
 <body>
   <main class="container">
-    <section class="card" aria-labelledby="title">
-      <h1 id="title">Welcome</h1>
-      <form id="greet-form" novalidate>
-        <label for="name">Your name</label>
-        <input id="name" name="name" type="text" required aria-required="true" />
-        <button type="submit">Greet Me</button>
-        <p id="error" class="error" aria-live="assertive"></p>
-      </form>
-      <p id="greeting" class="greeting" aria-live="polite"></p>
+    <section class="split left">
+      <div class="card" aria-labelledby="title">
+        <h1 id="title">Welcome</h1>
+        <form id="greet-form" novalidate>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required aria-required="true" />
+          <button type="submit">Greet Me</button>
+          <div id="error" class="error hidden" role="alert" aria-live="assertive">
+            <span id="error-message"></span>
+            <button type="button" id="dismiss-error" aria-label="Dismiss error">&times;</button>
+          </div>
+        </form>
+        <p id="greeting" class="greeting" aria-live="polite"></p>
+      </div>
+    </section>
+    <section class="split right">
+      <div class="info">
+        <h2>About</h2>
+        <p>Enter your name to receive a greeting.</p>
+      </div>
     </section>
   </main>
   <script src="script.js"></script>

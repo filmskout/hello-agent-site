@@ -6,14 +6,26 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: system-ui, sans-serif;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
 }
 
 .container {
   display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.split {
+  flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   padding: 1rem;
 }
 
@@ -65,8 +77,33 @@ button:hover {
 }
 
 .error {
+  background-color: #f8d7da;
   color: #d00;
-  min-height: 1.2em;
+  padding: 0.5rem;
+  border: 1px solid #d00;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.error button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.info {
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
 }
 
 .greeting {

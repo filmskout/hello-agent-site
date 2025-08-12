@@ -1,13 +1,13 @@
 {
   "name": "hello-agent-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple frontend greeting site",
   "main": "script.js",
   "scripts": {
     "test": "echo 'No tests specified' && exit 0"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "author": "OpenAI",
+  "license": "MIT",
+  "private": true
 }

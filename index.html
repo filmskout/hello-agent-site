@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Welcome</h1>
+      <form id="greet-form" novalidate>
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required aria-required="true" />
+        <button type="submit">Greet Me</button>
+        <p id="error" class="error" aria-live="assertive"></p>
+      </form>
+      <p id="greeting" class="greeting" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

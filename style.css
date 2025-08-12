@@ -39,6 +39,12 @@ input[type="text"] {
   font-size: 1rem;
 }
 
+input:focus {
+  border-color: #0056b3;
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
 button {
   padding: 0.75rem;
   border: none;
@@ -47,6 +53,11 @@ button {
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+}
+
+button:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
 }
 
 button:hover {

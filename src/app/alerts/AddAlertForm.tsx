@@ -5,7 +5,7 @@ export default function AddAlertForm() {
   const [form, setForm] = useState({ name: '', metric: 'followers', threshold: 0, direction: 'above' });
   const [msg, setMsg] = useState('');
   async function submit() {
-    const res = await fetch('/alerts', { method: 'POST', body: JSON.stringify(form) });
+    const res = await fetch('/api/alerts', { method: 'POST', body: JSON.stringify(form) });
     setMsg(res.ok ? '✅' : '❌');
   }
   return (

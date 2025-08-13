@@ -19,7 +19,8 @@ export default async function VideosPage() {
         </tr>
       </thead>
       <tbody>
-        {videos.map((v) => (
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        {videos.map((v: any) => (
           <tr key={v.id} className="odd:bg-gray-50 even:bg-white dark:odd:bg-gray-800 dark:even:bg-gray-700">
             <td className="p-2">{v.platform}</td>
             <td className="p-2">{v.title}</td>

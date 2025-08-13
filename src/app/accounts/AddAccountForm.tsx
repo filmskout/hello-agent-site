@@ -6,7 +6,7 @@ export default function AddAccountForm({ locale }: { locale: Locale }) {
   const [form, setForm] = useState({ platform: 'DOUYIN', handle: '', accountId: '', displayName: '', url: '' });
   const [msg, setMsg] = useState('');
   async function submit() {
-    const res = await fetch('/accounts', { method: 'POST', body: JSON.stringify(form) });
+    const res = await fetch('/api/accounts', { method: 'POST', body: JSON.stringify(form) });
     setMsg(res.ok ? '✅' : '❌');
   }
   return (

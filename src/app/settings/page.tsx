@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers';
 import { Locale, defaultLocale } from '@/lib/i18n';
 
-export default function SettingsPage() {
-  const lang = (cookies().get('lang')?.value as Locale) || defaultLocale;
+export default async function SettingsPage() {
+  const lang = ((await cookies()).get('lang')?.value as Locale) || defaultLocale;
   return (
     <div className="space-y-4">
-      <form action="/settings" method="post" className="flex gap-2 items-center">
+      <form action="/api/settings" method="post" className="flex gap-2 items-center">
         <input type="hidden" name="type" value="lang" />
         <select name="lang" defaultValue={lang} className="p-2 text-black">
           <option value="zh-CN">中文</option>

@@ -1,0 +1,82 @@
+// Prisma schema for Social Pulse CN
+
+// Auto-detect provider via DATABASE_URL and DATABASE_PROVIDER env vars
+// Default to SQLite
+
+datasource db {
+  provider = env("DATABASE_PROVIDER")
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Platform {
+  DOUYIN
+  KUAISHOU
+  WECHAT_CHANNELS
+  XIAOHONGSHU
+}
+
+model SocialAccount {
+  id          String   @id @default(cuid())
+  platform    Platform
+  handle      String
+  accountId   String
+  displayName String?
+  url         String?
+  createdAt   DateTime @default(now())
+  metrics     Metric[]
+  videos      Video[]
+
+  @@unique([platform, accountId])
+}
+
+model Video {
+  id           String   @id @default(cuid())
+  accountId    String
+  platform     Platform
+  videoId      String
+  title        String?
+  url          String?
+  publishedAt  DateTime?
+  metrics      Metric[]
+  SocialAccount SocialAccount @relation(fields: [accountId], references: [id])
+
+  @@unique([platform, videoId])
+}
+
+model Metric {
+  id         String   @id @default(cuid())
+  timestamp  DateTime
+  scope      String
+  accountRef String?
+  videoRef   String?
+  followers  Int?
+  views      Int?
+  likes      Int?
+  comments   Int?
+  shares     Int?
+  saves      Int?
+
+  SocialAccount SocialAccount? @relation(fields: [accountRef], references: [id])
+  Video         Video?         @relation(fields: [videoRef], references: [id])
+
+  @@unique([scope, timestamp, accountRef, videoRef])
+}
+
+model AlertRule {
+  id         String   @id @default(cuid())
+  name       String
+  platform   Platform?
+  accountRef String?
+  metric     String
+  threshold  Int
+  direction  String
+  active     Boolean @default(true)
+  createdAt  DateTime @default(now())
+
+  SocialAccount SocialAccount? @relation(fields: [accountRef], references: [id])
+}
+

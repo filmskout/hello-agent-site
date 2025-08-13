@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const hideError = () => {
     error.classList.add('hidden');
     errorMessage.textContent = '';
+    nameInput.removeAttribute('aria-invalid');
+    nameInput.removeAttribute('aria-describedby');
   };
 
   dismissError.addEventListener('click', hideError);
@@ -26,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (name === '') {
       errorMessage.textContent = 'Please enter your name.';
       error.classList.remove('hidden');
+      nameInput.setAttribute('aria-invalid', 'true');
+      nameInput.setAttribute('aria-describedby', 'error-message');
       greeting.textContent = '';
       nameInput.focus();
       return;

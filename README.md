@@ -8,7 +8,7 @@
 pnpm i && pnpm prisma:dev && pnpm dev
 ```
 
-默认使用 SQLite 数据库。如果提供 `SUPABASE_URL` 与 `SUPABASE_ANON_KEY` 并设置 `DATABASE_PROVIDER=postgresql` 与 `DATABASE_URL`，即可切换到 Supabase(Postgres)。
+默认使用名为 `prisma-postgres-indigo-xylophone` 的 PostgreSQL 数据库。如需切换到 Supabase(Postgres)，请提供 `SUPABASE_URL` 与 `SUPABASE_ANON_KEY` 并设置 `DATABASE_PROVIDER=postgresql` 与 `DATABASE_URL`。
 
 ## 环境变量 / Environment
 
@@ -36,7 +36,7 @@ platform,account_id,video_id,title,date(YYYY-MM-DD),views,likes,comments,shares,
 
 - Next.js App Router + TypeScript
 - Tailwind CSS + Headless UI + Chart.js
-- Prisma ORM (SQLite / Supabase)
+- Prisma ORM (PostgreSQL)
 - 可选邮箱免密登录 (NextAuth)，可通过 `AUTH_DISABLED=true` 关闭。
 - 不进行任何爬虫；仅支持合规数据来源。
 

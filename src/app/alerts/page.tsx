@@ -17,7 +17,8 @@ export default async function AlertsPage() {
           </tr>
         </thead>
         <tbody>
-          {alerts.map((a) => (
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {alerts.map((a: any) => (
             <tr key={a.id} className="odd:bg-gray-50 even:bg-white dark:odd:bg-gray-800 dark:even:bg-gray-700">
               <td className="p-2">{a.name}</td>
               <td className="p-2">{a.metric}</td>

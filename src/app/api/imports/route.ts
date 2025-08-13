@@ -3,7 +3,6 @@ export const runtime = 'nodejs';
 import { NextResponse } from 'next/server';
 import { parse } from 'csv-parse/sync';
 import { prisma } from '@/lib/prisma';
-import { Platform } from '@prisma/client';
 
 export async function POST(req: Request) {
   const form = await req.formData();
@@ -12,7 +11,7 @@ export async function POST(req: Request) {
   const records = parse(text, { columns: true, skip_empty_lines: true });
   let inserted = 0;
   for (const row of records) {
-    const platform = row.platform as Platform;
+    const platform = row.platform as string;
     // upsert account
     const account = await prisma.socialAccount.upsert({
       where: { platform_accountId: { platform, accountId: row.account_id } },

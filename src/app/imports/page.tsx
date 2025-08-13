@@ -6,7 +6,7 @@ export default function ImportsPage() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const res = await fetch('/imports', { method: 'POST', body: fd });
+    const res = await fetch('/api/imports', { method: 'POST', body: fd });
     const json = await res.json();
     setResult(JSON.stringify(json, null, 2));
   }

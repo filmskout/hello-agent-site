@@ -1,0 +1,2 @@
+platform,account_id,video_id,title,date,views,likes,comments,shares,saves,url
+DOUYIN,123456,abc123,Sample video,2024-01-01,1000,50,5,2,1,https://example.com

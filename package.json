@@ -1,13 +1,44 @@
 {
   "name": "hello-agent-site",
-  "version": "1.0.0",
-  "description": "A simple frontend greeting site",
-  "main": "script.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo 'No tests specified' && exit 0"
+    "dev": "next dev",
+    "build": "prisma migrate deploy && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prisma:dev": "prisma migrate dev && prisma generate",
+    "seed": "tsx prisma/seed.ts",
+    "test": "playwright test"
   },
-  "keywords": [],
-  "author": "OpenAI",
-  "license": "MIT",
-  "private": true
+  "dependencies": {
+    "@auth/prisma-adapter": "^1",
+    "@headlessui/react": "2.2.7",
+    "@prisma/client": "^5",
+    "chart.js": "^4",
+    "csv-parse": "^5",
+    "dayjs": "^1",
+    "next": "15.4.6",
+    "next-auth": "5.0.0-beta.29",
+    "next-themes": "^0.2.1",
+    "react": "19.1.0",
+    "react-chartjs-2": "^5",
+    "react-dom": "19.1.0",
+    "zod": "^3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1",
+    "@prisma/engines": "5.22.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "prisma": "^5",
+    "tailwindcss": "^4",
+    "tsx": "^4",
+    "typescript": "^5"
+  }
 }

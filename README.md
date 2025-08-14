@@ -40,6 +40,17 @@ platform,account_id,video_id,title,date(YYYY-MM-DD),views,likes,comments,shares,
 - 可选邮箱免密登录 (NextAuth)，可通过 `AUTH_DISABLED=true` 关闭。
 - 不进行任何爬虫；仅支持合规数据来源。
 
+## 测试 / Testing
+
+Playwright 用于端到端测试。首次运行前需要下载浏览器：
+
+```bash
+pnpm exec playwright install --with-deps
+pnpm test
+```
+
+如果因网络限制导致下载失败，请参考 [docs/PLAYWRIGHT.md](docs/PLAYWRIGHT.md) 获取离线或 Vercel 环境的解决方案。
+
 ## 部署到 Vercel / Deploy
 
 1. 将仓库导入 Vercel。

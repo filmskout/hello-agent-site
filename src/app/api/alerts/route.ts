@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   try {
     await prisma.alertRule.create({ data });
     return NextResponse.json({ ok: true });
-  } catch (e) {
+  } catch {
     return new NextResponse('error', { status: 400 });
   }
 }

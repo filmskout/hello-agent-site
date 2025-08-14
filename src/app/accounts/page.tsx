@@ -6,7 +6,7 @@ import { cookies } from 'next/headers';
 import { Locale, defaultLocale, t } from '@/lib/i18n';
 
 export default async function AccountsPage() {
-  const lang = (cookies().get('lang')?.value as Locale) || defaultLocale;
+  const lang = ((await cookies()).get('lang')?.value as Locale) || defaultLocale;
   const accounts = await prisma.socialAccount.findMany({ orderBy: { createdAt: 'desc' } });
   return (
     <div className="space-y-4">
@@ -20,7 +20,8 @@ export default async function AccountsPage() {
           </tr>
         </thead>
         <tbody>
-          {accounts.map((a) => (
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {accounts.map((a: any) => (
             <tr key={a.id} className="odd:bg-gray-50 even:bg-white dark:odd:bg-gray-800 dark:even:bg-gray-700">
               <td className="p-2">{a.platform}</td>
               <td className="p-2">{a.handle}</td>
